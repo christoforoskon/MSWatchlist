@@ -4,20 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../../public/vendors/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../../public/vendors/css/col.css">
+  {{!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> --}}
   <link rel="stylesheet" href="/css/style.css">
-  <title>MyApp</title>
+  <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css">
+  <title>MSWatchlist</title>
 </head>
 
 <body>
-
   {{> _navbar}}
-  <div class="container">
-    {{>_msg}}
-    {{>_errors}}
-    {{{body}}}
-  </div>
+  {{!-- <div class="container"> --}}
+  {{>_msg}}
+  {{>_errors}}
+  {{{body}}}
+  {{!-- </div> --}}
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -25,9 +27,30 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
     integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
     crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+  {{!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> --}}
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    $(document).ready(() => {
+      $('#searchForm').on('submit', (e) => {
+        let searchText = $('#searchText').val();
+        getMovies(searchText);
+        e.preventDefault();
+      })
+    });
+
+    function getMovies(searchText){
+      axios.get('https://movie-database-imdb-alternative.p.rapidapi.com/?s='+searchText+'&x-rapidapi-key=0ae3277967msh5cde28013ac2875p10a40ajsnbc003eaad3d1&x-rapidapi-host=movie-database-imdb-alternative.p.rapidapi.com')
+      .then((response) => {
+          console.log(response);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+    // http://www.omdbapi.com/?i=tt3896198&apikey=eba478c0
+  </script>
 </body>
 
 </html>
