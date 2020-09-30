@@ -1,30 +1,20 @@
-<div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-  <div class="container">
-    <div class="navbar-brand">
-      <a class="" href="/">MS-Watchlist</a>
-      <ul class="navbar-nav">
-        <li><a class="nav-item" href="/about">About</a></li>
-        {{#if user}}
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">Movies & TV
-            series</a>
-          <div class="">
-            <a href="/movies" class="dropdown-item">Movies</a>
-            <a href="/movies/add" class="dropdown-item">Add Movie</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a href="/users/logout" class="nav-link">Logout</a>
-        </li>
-        {{else}}
-        <li class="nav-item">
-          <a href="/users/login" class="nav-link">Login</a>
-        </li>
-        <li class="nav-item">
-          <a href="/users/register" class="nav-link">Register</a>
-        </li>
-        {{/if}}
-      </ul>
+<div class="nav">
+  <a class="logo" href="/">MS-Watchlist</a>
+  <ul class="nav-links">
+    {{#if user}}
+    <a href="/movies" class="line1">Movies</a>
+    <a href="/movies/add" class="line2">Add Movie</a>
+    <a href="/about" class="line3">About</a>
+
+    <a href="/users/logout">Logout</a>
+    {{else}}
+    <a href="/users/login" class="nav-link">Login</a>
+    <a href="/users/register" class="nav-link">Register</a>
+    {{/if}}
+    <div class="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
     </div>
-  </div>
+  </ul>
 </div>

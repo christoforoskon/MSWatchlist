@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const router = express.Router();
 const { ensureAuthenticated } = require('../helpers/auth');
 
-
 //Load Movie Model
 require('../models/Movie');
 const Movie = mongoose.model('movies')

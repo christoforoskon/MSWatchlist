@@ -18,9 +18,77 @@ html {
   text-rendering: optimizeLegibility;
 }
 
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  background-color: black;
+  font-family: 'Lato', sans-serif;
+}
+
 .logo{
-  width: 130px;
-  margin: auto;
+  color: rgb(172, 172, 172);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 20px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+}
+
+.nav-links li{
+  list-style: none;
+}
+
+.nav-links a{
+  color: rgb(172, 172, 172);
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.burger{
+  cursor: pointer;
+}
+
+.burger div{
+  width: 25px;
+  height: 3px;
+  background-color: rgb(172, 172, 172);
+  color: antiquewhite;
+  margin: 5px;
+}
+
+#movies img, #movie img {
+  width: 100%;
+}
+
+#movies .col-md-3 .well{
+  height: 390px;
+}
+#movies .col-md-3 img{
+  height: 240px;
+}
+
+@media screen and (max-width:1024px){
+  .nav-links{
+    width: 50%;
+  }
+}
+
+@media screen and (max-width:768px){
+  .nav-links{
+    position: absolute;
+    top: 8vh;
+  }
+  .burger{
+    display: block;
+  }
 }
 
 .row {
